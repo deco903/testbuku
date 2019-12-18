@@ -34,7 +34,7 @@
   			 <td>$data->penerbit</td>
   			 <td>$data->tahun</td>
   			 <td>
-  			   <a href='edit.php?kode=$data->id' class='btn btn-warning btn-xs'>edit</a> | <a href='index.php?kode=$data->id' class='btn btn-danger btn-xs'>Delete</a>
+  			   <a href='edit.php?kode=$data->id' class='btn btn-warning btn-xs'>edit</a> | <a href='index.php?delete=$data->id' class='btn btn-danger btn-xs'>Delete</a>
   			 </td>
   			</tr>
   		";
@@ -46,4 +46,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
+
+<?php
+if(isset($_GET['delete'])){
+  $id = $_GET['delete'];
+  $buku->deleteBook($id);
+  header('location:index.php');
+}
+?>
+
 
